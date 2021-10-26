@@ -1,8 +1,29 @@
 // constants and variables
 const playersChoiceDisplay = document.getElementById("playersChoice");
+const gameTitle = document.querySelectorAll(".title");
+console.log(gameTitle)
 const computersChoiceDisplay = document.getElementById("computersChoice");
 const resulstDisplay = document.getElementById("result");
 const startBtn = document.getElementById("startButton");
+
+startBtn.style.backgroundColor = 'green';
+startBtn.style.color = 'white';
+
+// uncomment code below to see html document
+const exampleDiv = document.body.children
+// console.log("HERE", exampleDiv);
+//
+
+for(let i = 0; i < exampleDiv.length; i++) {
+  console.log(exampleDiv[i]);
+}
+
+// uncomment to see classlist
+// console.log(startBtn.classList)
+
+// 
+const h3s = document.querySelector(".class1");
+console.log(h3s);
 
 startBtn.addEventListener('click', () => {
   runGame();
@@ -40,8 +61,10 @@ const runGame = () => {
   if (playersChoice === 'R') {
     if (computersChoice === 'S') {
       resulstDisplay.innerHTML = "You Won!";
+      gameTitle.style.color = 'green'
     } else if (computersChoice === 'P') {
       resulstDisplay.innerHTML = "You've Lost!";
+      gameTitle.style.color = 'red'
     } else {
       resulstDisplay.innerHTML = "It's a Draw!";
     }
@@ -51,8 +74,10 @@ const runGame = () => {
   if (playersChoice === 'S') {
     if (computersChoice === 'P') {
       resulstDisplay.innerHTML = "You won!";
+      gameTitle.style.color = 'green'
     } else if (computersChoice === 'R') {
       resulstDisplay.innerHTML =  "You've lost";
+      gameTitle.style.color = 'red'
     } else {
       resulstDisplay.innerHTML =  "It's a Draw!";
     }
@@ -62,8 +87,10 @@ const runGame = () => {
   if (playersChoice === 'P') {
     if (computersChoice === 'R') {
       resulstDisplay.innerHTML = "You won!";
+      gameTitle.style.color = 'green'
     } else if (computersChoice === 'S') {
       resulstDisplay.innerHTML = "You've lost!";
+      gameTitle.style.color = 'red'
     } else {
       resulstDisplay.innerHTML = "It's a Draw!";
     }
