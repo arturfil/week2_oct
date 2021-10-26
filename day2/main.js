@@ -2,26 +2,18 @@
 const playersChoiceDisplay = document.getElementById("playersChoice");
 const computersChoiceDisplay = document.getElementById("computersChoice");
 const resulstDisplay = document.getElementById("result");
-// let quit = false;
-let start = false;
-let playersChoice;
+const startBtn = document.getElementById("startButton");
 
-// function that sets start to true;
-
-const startGame = () => {
-  start = true;
-  console.log("Works")
-  runGame()
-}
+startBtn.addEventListener('click', () => {
+  runGame();
+});
 
 // Loop for game handling logic
 const runGame = () => {
 
   // handle the start of game
-  if (start === true) {
-    playersChoice = prompt("Choose Rock = R, Paper = P, Scissors = S").toUpperCase();
-    playersChoiceDisplay.innerHTML = playersChoice;
-  }
+  let playersChoice = prompt("Choose Rock = R, Paper = P, Scissors = S").toUpperCase();
+  playersChoiceDisplay.innerHTML = playersChoice;
   // alert(`You've chosen ${playersChoice}`);
 
   // randomizing the computers choice
