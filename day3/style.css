@@ -157,3 +157,106 @@ nav ul li a:hover {
   color: lightgrey;
   font-size: 1.1rem;
 }
+
+.services {
+  border-top: 0.2px solid rgb(241, 241, 241);
+  background-image: linear-gradient(45deg, rgb(214, 205, 253), rgb(266 ,255, 248));
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  text-align: center;
+}
+
+.services-heading {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.services-heading h2 {
+  line-height: 55px;
+  font: 2.2rem;
+  color: #22252e;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.services-heading p {
+  margin: 10px auto 20px auto;
+  font-size: 1rem;
+  color: #777474;
+  width: 50%;
+  text-align: center;
+}
+
+.box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 30px 0 30px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  box-shadow: 2px 2px 20px rgba(90, 118, 253, 0.15);
+  border-radius: 10px;
+  margin: 20px;
+  flex-grow: 1;
+}
+
+.box img {
+  height: 250px;
+  margin: 10px;
+}
+
+.sub-header {
+  font-size: 1.5rem;
+  color: #22252e;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.box p {
+  font-size: 1rem;
+  color: #777474;
+  display: block; /* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Block_and_Inline_Layout_in_Normal_Flow */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 500px;
+}
+
+.box a {
+  width: 150px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #5a76fd;
+  text-transform: uppercase;
+  margin: auto;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #5a76fd;
+}
+
+.box a:hover {
+  background-color: #5a76fd;
+  color: #fff;
+  box-shadow: 5px 10px 30px rgba(90,118, 253, 0.5);
+  transition: all ease 0.3s;
+}
