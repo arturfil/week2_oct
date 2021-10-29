@@ -11,6 +11,36 @@ h2 {
 }
 
 .img-animals {
+  margin-bottom: 10px;
+  height: 100px;
+  width: 100px;
+}
+
+.products-row {
+  margin-top: 40px;
+}
+
+.img-products {
+  display: flex;
+  align-self: center;
+  margin: 0 auto 20px auto;
   height: 200px;
   width: 200px;
+}
+
+.name, .lastname {
+  margin-bottom: 10px;
+  border: 1px solid blue;
+}
+
+@media screen and (max-width: 600px) {
+  .name {
+    color: red;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .name {
+    color: green;
+  }
 }
