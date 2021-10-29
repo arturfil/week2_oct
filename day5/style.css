@@ -1,5 +1,5 @@
 h2 {
-  margin-top: 80px;
+  margin: 40px 0;
 }
 
 .navbar {
@@ -8,4 +8,9 @@ h2 {
 
 .navbar-brand {
   color: white;
+}
+
+.img-animals {
+  height: 200px;
+  width: 200px;
 }
