@@ -136,47 +136,60 @@ function renderPrice() {
   const strong = document.querySelector('.price strong');
   let total = basePrice;
 
-  ul.innerHTML = '';
-  strong.innerHTML = '';
-
-  if (state.pepperoni) {
-    let li = document.createElement('li');
-    li.innerHTML = `$${ingredients.pepperoni.price} ${ingredients.pepperoni.name}`;
-    ul.append(li);
-    total += ingredients.pepperoni.price;
+  let li = document.querySelectorAll('aside li');
+  let index = 0;
+  for(let i in state) {
+    if (state[i]) {
+      li[index].innerHTML = `$${ingredients[i].price} ${ingredients[i].name}`;
+    } else {
+      li[index].innerHTML = '';
+    }
+    index++;
   }
 
-  if (state.mushrooms) {
-    let li = document.createElement('li');
-    li.innerHTML = `$${ingredients.mushrooms.price} ${ingredients.mushrooms.name}`;
-    ul.append(li);
-    total += ingredients.mushrooms.price;
-  }
+  document.querySelector('aside strong').innerHTML = `$${total}`;
 
-  if (state.greenPeppers) {
-    let li = document.createElement('li');
-    li.innerHTML = `$${ingredients.greenPeppers.price} ${ingredients.greenPeppers.name}`;
-    ul.append(li);
-    total += ingredients.greenPeppers.price;
-  }
+//   ul.innerHTML = '';
+//   strong.innerHTML = '';
 
-  if (state.whiteSauce) {
-    let li = document.createElement('li');
-    li.innerHTML = `$${ingredients.whiteSauce.price} ${ingredients.whiteSauce.name}`;
-    ul.append(li);
-    total += ingredients.whiteSauce.price;
-  }
+//   if (state.pepperoni) {
+//     let li = document.createElement('li');
+//     li.innerHTML = `$${ingredients.pepperoni.price} ${ingredients.pepperoni.name}`;
+//     ul.append(li);
+//     total += ingredients.pepperoni.price;
+//   }
 
-  if (state.glutenFreeCrust) {
-    let li = document.createElement('li');
-    li.innerHTML = `$${ingredients.glutenFreeCrust.price} ${ingredients.glutenFreeCrust.name}`;
-    ul.append(li);
-    total += ingredients.glutenFreeCrust.price;
-  }
+//   if (state.mushrooms) {
+//     let li = document.createElement('li');
+//     li.innerHTML = `$${ingredients.mushrooms.price} ${ingredients.mushrooms.name}`;
+//     ul.append(li);
+//     total += ingredients.mushrooms.price;
+//   }
 
-  if (ul) {
-    strong.innerHTML = `$${total}`
-  }
+//   if (state.greenPeppers) {
+//     let li = document.createElement('li');
+//     li.innerHTML = `$${ingredients.greenPeppers.price} ${ingredients.greenPeppers.name}`;
+//     ul.append(li);
+//     total += ingredients.greenPeppers.price;
+//   }
+
+//   if (state.whiteSauce) {
+//     let li = document.createElement('li');
+//     li.innerHTML = `$${ingredients.whiteSauce.price} ${ingredients.whiteSauce.name}`;
+//     ul.append(li);
+//     total += ingredients.whiteSauce.price;
+//   }
+
+//   if (state.glutenFreeCrust) {
+//     let li = document.createElement('li');
+//     li.innerHTML = `$${ingredients.glutenFreeCrust.price} ${ingredients.glutenFreeCrust.name}`;
+//     ul.append(li);
+//     total += ingredients.glutenFreeCrust.price;
+//   }
+
+//   if (ul) {
+//     strong.innerHTML = `$${total}`
+//   }
 }
 
 renderEverything();
