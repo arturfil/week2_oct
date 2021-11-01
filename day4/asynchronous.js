@@ -38,30 +38,39 @@
 let water_done = false;
 
 // boiling water -> brewing coffee
-setTimeout(() => {
-  console.log("water boiled DONE")
+// setTimeout(() => {
+//   console.log("water boiled DONE")
 
-  setTimeout(() => {
-    console.log("Brewing coffe DONE")
-  }, 1000)
+//   setTimeout(() => {
+//     console.log("Brewing coffe DONE")
+//   }, 1000)
 
-}, 2000)
+// }, 2000)
 
-// Dosing beans
-setTimeout(() => {
-  console.log("Beans dosed DONE");
-}, 400)
+// // Dosing beans
+// setTimeout(() => {
+//   console.log("Beans dosed DONE");
+// }, 400)
 
-// grind the coffee -> put it in filter
-setTimeout(() => {
-  console.log("Grind coffee");
+// // grind the coffee -> put it in filter
+// setTimeout(() => {
+//   console.log("Grind coffee");
 
-  setTimeout(() => {
-    console.log("Putting coffe in filter")
-  }, 500)
+//   setTimeout(() => {
+//     console.log("Putting coffe in filter")
+//   }, 500)
 
-}, 500);
+// }, 500);
 
 // IMPORTANT -> JS is single threaded and synchronous BUT it has 
 // asynchronouse behaviors, can delegate tasks to other processes
 
+// creating intervals 
+
+let ourInterval = setInterval(() => {
+  console.log("Hey!")
+}, 1000);
+
+setTimeout(() => {
+  clearInterval(ourInterval);
+}, 5000)
