@@ -6,6 +6,7 @@ const myGameArea = {
   start: function() {
     this.canvas.width = 480;
     this.canvas.height = 270;
+    // this.context.strokeStyle = 'red'
     this.context = this.canvas.getContext('2d');
     document.body.insertBefore(this.canvas, document.body.childNodes[0])
     this.interval = setInterval(updateGameArea, 20);
@@ -24,18 +25,39 @@ const myGameArea = {
   }
 }
 
+function updateObstacles() {
+  for(let i = 0; i < myObstacles.length; i++) {
+    myObstacles[i].x += -1;
+    myObstacles[i].update();
+  }
+
+  myGameArea.frames += 1;
+  if(myGameArea.frames % 120 === 0) {
+    let x = myGameArea.canvas.width;
+    let minHeight = 20;
+    let maxHeight = 200;
+    let height = Math.floor(Math.random() * (maxHeight - minHeight + 1)+ minHeight);
+    let minGap = 50;
+    let maxGap = 200;
+    let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
+    myObstacles.push(new Component(10, height, 'green', x, 0));
+    myObstacles.push(new Component(10, x - height - gap, 'green', x, height + gap))
+  }
+}
+
 function updateGameArea() {
   myGameArea.clear();
   player.newPos();
   player.update();
-  // TODO: updateObstacles
-  // checkGameOver();
+  updateObstacles();
+  checkGameOver();
   myGameArea.score();
 }
 
 function checkGameOver() {
-  const crashed = false;
-  // TODO: handle myObstacles array
+  const crashed = myObstacles.some(function(obstacle) {
+    return player.crashWith(obstacle);
+  })
   if (crashed) {
     myGameArea.stop();
   }
@@ -80,11 +102,11 @@ class Component {
   }
 
   crashWith(obstacle) {
-    return (
-      this.bottom() > obstacle.top() ||
-      this.top() < obstacle.bottom() ||
-      this.left() < obstacle.right() || 
-      this.right() > obstacle.left()
+    return !(
+      this.bottom() < obstacle.top() ||
+      this.top() > obstacle.bottom() ||
+      this.left() > obstacle.right() || 
+      this.right() < obstacle.left()
     )
   }
 }
@@ -93,4 +115,26 @@ const player = new Component(30, 30, 'red', 0, 110);
 
 // call game start()
 myGameArea.start();
-console.log(player.x);
+
+// add event listeners
+document.addEventListener('keydown', (event) => {
+  switch(event.key) {
+    case 'ArrowDown':
+      player.speedY += 1;
+      break;
+    case 'ArrowUp':
+      player.speedY -= 1;
+      break;
+    case 'ArrowLeft':
+      player.speedX -= 1;
+      break;
+    case 'ArrowRight':
+      player.speedX += 1;
+      break;
+  }
+})
+
+document.addEventListener('keyup', (event) => {
+  player.speedX = 0;
+  player.speedY = 0;
+})
